@@ -1,0 +1,88 @@
+import React from 'react';
+
+export const footerStyles: Record<string, React.CSSProperties> = {
+  footerContainer: {
+    backgroundColor: '#FFFFFF',
+    borderTop: '1px solid #CBD5E1',
+    padding: '40px 40px 20px 40px',
+    marginTop: 'auto',
+    width: '100%',
+    boxSizing: 'border-box',
+    fontFamily: "'Inter', sans-serif",
+  },
+  footerGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '32px',
+    maxWidth: '1200px',
+    margin: '0 auto 30px auto',
+  },
+  column: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+  },
+  columnTitle: {
+    fontSize: '15px',
+    fontWeight: 700,
+    color: '#0F172A',
+    margin: '0 0 4px 0',
+    letterSpacing: '0.3px',
+  },
+  textSecondary: {
+    fontSize: '13px',
+    color: '#475569',
+    lineHeight: '1.5',
+    margin: 0,
+  },
+  disclaimer: {
+    fontSize: '11px',
+    color: '#64748B',
+    lineHeight: '1.4',
+    margin: '6px 0 0 0',
+    backgroundColor: '#F8FAFC',
+    padding: '8px',
+    borderRadius: '6px',
+    borderLeft: '3px solid #0052CC',
+  },
+  link: {
+    fontSize: '13px',
+    color: '#475569',
+    textDecoration: 'none',
+    transition: 'color 0.2s ease',
+    cursor: 'pointer',
+  },
+  contactItem: {
+    fontSize: '13px',
+    color: '#475569',
+    margin: 0,
+    lineHeight: '1.4',
+  },
+  bottomBar: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    paddingTop: '20px',
+    borderTop: '1px solid #E2E8F0',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '12px',
+    fontSize: '12px',
+    color: '#94A3B8',
+  },
+  copyrightText: {
+    margin: 0,
+  },
+  systemStatus: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    fontSize: '12px',
+    color: '#059669',
+    fontWeight: 500,
+  },
+  statusDot: {
+    fontSize: '10px',
+  },
+};

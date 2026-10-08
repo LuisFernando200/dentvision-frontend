@@ -1,0 +1,462 @@
+/* ==========================================================================
+   DentVision - Estilos para "Modelos IA / Ayuda al Modelo" (Active Learning)
+   Diseñado para profesionales odontológicos con estética clínica y tecnológica.
+   ========================================================================== */
+
+.hm-viewport {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper, #f8fafc);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink, #0f172a);
+}
+
+.hm-main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 4% 64px;
+  flex: 1;
+}
+
+/* Encabezado Principal */
+.hm-header {
+  margin-bottom: 32px;
+}
+
+.hm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hm-title {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.hm-title em {
+  font-style: normal;
+  color: #0284c7;
+}
+
+.hm-subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* Tarjetas Informativas de Protocolo */
+.hm-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.hm-protocol-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.hm-protocol-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f0f9ff;
+  color: #0284c7;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.hm-protocol-text h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 3px 0;
+}
+
+.hm-protocol-text p {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Estación de Trabajo (Workbench) */
+.hm-workbench {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Columna Izquierda: Carga de Radiografía */
+.hm-upload-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.hm-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.hm-section-title h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.hm-section-hint {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Dropzone */
+.hm-dropzone {
+  flex: 1;
+  min-height: 380px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hm-dropzone:hover {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+}
+
+.hm-dropzone.drag-active {
+  border-color: #0284c7;
+  background-color: #e0f2fe;
+  box-shadow: inset 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.hm-dropzone-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #0284c7;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hm-dropzone-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.hm-dropzone-desc {
+  font-size: 13px;
+  color: #64748b;
+  max-width: 320px;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.hm-select-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+  transition: background 0.15s ease;
+}
+
+.hm-select-btn:hover {
+  background: #0369a1;
+}
+
+/* Visor de previsualización */
+.hm-preview-container {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  background: #090d16;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hm-preview-header {
+  padding: 10px 16px;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.hm-file-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e2e8f0;
+  font-weight: 600;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hm-preview-image-box {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.hm-preview-image-box img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hm-preview-footer {
+  padding: 10px 16px;
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hm-discard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hm-discard-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Columna Derecha: Formulario de Anotación */
+.hm-form-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.hm-form-group {
+  margin-bottom: 20px;
+}
+
+.hm-form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.hm-tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.hm-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hm-chip:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.hm-chip.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+
+.hm-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0f172a;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hm-textarea:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.hm-textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Alertas de Notificación */
+.hm-alert-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hm-alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Botón de Enviar */
+.hm-submit-btn {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.hm-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+}
+
+.hm-submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinner */
+.hm-spinner {
+  animation: hm-spin 0.9s linear infinite;
+}
+
+@keyframes hm-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hm-workbench {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .hm-dropzone {
+    min-height: 280px;
+  }
+}

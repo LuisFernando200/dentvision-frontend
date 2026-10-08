@@ -1,0 +1,799 @@
+/* ==========================================================================
+   DentVision - Portal Clínico - Sistema de Diseño UX/UI Login
+   Diseñado para profesionales odontológicos: confianza, ergonomía y claridad.
+   ========================================================================== */
+
+:root {
+  --dv-primary: #0284c7;
+  --dv-primary-hover: #0369a1;
+  --dv-primary-light: #e0f2fe;
+  --dv-primary-glow: rgba(2, 132, 199, 0.18);
+  --dv-dark-bg: #090d16;
+  --dv-dark-surface: #0f172a;
+  --dv-dark-card: rgba(15, 23, 42, 0.75);
+  --dv-dark-border: rgba(255, 255, 255, 0.08);
+  --dv-text-primary: #0f172a;
+  --dv-text-secondary: #475569;
+  --dv-text-muted: #94a3b8;
+  --dv-border-color: #e2e8f0;
+  --dv-border-focus: #0284c7;
+  --dv-bg-page: #f8fafc;
+  --dv-success: #10b981;
+  --dv-error-bg: #fef2f2;
+  --dv-error-border: #fecaca;
+  --dv-error-text: #b91c1c;
+  --dv-radius-sm: 8px;
+  --dv-radius-md: 12px;
+  --dv-radius-lg: 18px;
+  --dv-radius-xl: 24px;
+  --dv-transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Contenedor principal de pantalla completa */
+.dv-auth-viewport {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  background-color: var(--dv-bg-page);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dv-text-primary);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   COLUMNA IZQUIERDA: SHOWCASE CLÍNICO / VALOR DEL PRODUCTO
+   ========================================================================== */
+.dv-showcase-panel {
+  flex: 1.15;
+  background: radial-gradient(circle at 10% 20%, #111a2e 0%, #080c14 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f8fafc;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Efectos de iluminación ambiental de fondo */
+.dv-showcase-panel::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.18) 0%, rgba(2, 132, 199, 0) 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.dv-showcase-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%);
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+/* Cuadrícula sutil médica de fondo */
+.dv-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+}
+
+.dv-showcase-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dv-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7dd3fc;
+  backdrop-filter: blur(12px);
+}
+
+.dv-brand-badge-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--dv-success);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--dv-success);
+}
+
+/* Área central de demostración del producto */
+.dv-showcase-content {
+  position: relative;
+  z-index: 2;
+  margin: 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.dv-showcase-title-area h2 {
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+}
+
+.dv-gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dv-showcase-title-area p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 540px;
+  margin: 0;
+}
+
+/* Tarjeta interactiva del visor de radiografía */
+.dv-preview-card {
+  background: var(--dv-dark-card);
+  border: 1px solid var(--dv-dark-border);
+  border-radius: var(--dv-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.dv-preview-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+
+.dv-preview-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+}
+
+.dv-preview-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.dv-preview-status svg {
+  color: #38bdf8;
+}
+
+.dv-preview-tag {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.dv-preview-image-container {
+  position: relative;
+  height: 230px;
+  background: #050811;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dv-preview-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  filter: contrast(1.15) brightness(0.95);
+  transition: transform 0.6s ease;
+}
+
+.dv-preview-card:hover .dv-preview-image-container img {
+  transform: scale(1.02);
+}
+
+/* Indicadores de análisis de IA simulados en la imagen */
+.dv-ai-indicator {
+  position: absolute;
+  border: 1.5px dashed #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  animation: dv-pulse 3s infinite ease-in-out;
+}
+
+.dv-indicator-caries {
+  top: 42%;
+  left: 36%;
+  width: 44px;
+  height: 38px;
+}
+
+.dv-indicator-label {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes dv-pulse {
+  0%, 100% { border-color: #38bdf8; opacity: 0.85; }
+  50% { border-color: #7dd3fc; opacity: 1; }
+}
+
+.dv-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(15, 23, 42, 0.85);
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.dv-preview-pills {
+  display: flex;
+  gap: 10px;
+}
+
+.dv-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+
+.dv-pill svg {
+  color: var(--dv-success);
+}
+
+/* Bloque inferior de confianza / Testimonio */
+.dv-showcase-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+}
+
+.dv-trust-quote {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.dv-trust-author {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.dv-trust-author strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+/* ==========================================================================
+   COLUMNA DERECHA: FORMULARIO DE ACCESO PROFESIONAL
+   ========================================================================== */
+.dv-form-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 64px;
+  background: #ffffff;
+  position: relative;
+}
+
+.dv-panel-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dv-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dv-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.dv-brand-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);
+}
+
+.dv-top-signup-link {
+  font-size: 13.5px;
+  color: var(--dv-text-secondary);
+}
+
+.dv-top-signup-link a {
+  color: var(--dv-primary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: var(--dv-transition);
+}
+
+.dv-top-signup-link a:hover {
+  color: var(--dv-primary-hover);
+  text-decoration: underline;
+}
+
+/* Envoltura del Formulario */
+.dv-form-wrapper {
+  max-width: 420px;
+  width: 100%;
+  margin: auto 0;
+  padding: 24px 0;
+  align-self: center;
+}
+
+.dv-form-header {
+  margin-bottom: 30px;
+}
+
+.dv-security-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0369a1;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.dv-form-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.dv-form-header p {
+  font-size: 14.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mensajes de Alerta */
+.dv-alert-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--dv-radius-sm);
+  background-color: var(--dv-error-bg);
+  border: 1px solid var(--dv-error-border);
+  color: var(--dv-error-text);
+  font-size: 13.5px;
+  line-height: 1.45;
+  margin-bottom: 22px;
+  animation: dv-slide-down 0.25s ease-out;
+}
+
+.dv-alert-box svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dv-alert-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--dv-error-text);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.dv-alert-close:hover {
+  opacity: 1;
+}
+
+@keyframes dv-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Campos de Formulario */
+.dv-form-group {
+  margin-bottom: 20px;
+}
+
+.dv-label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.dv-label-wrapper label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+.dv-forgot-password-link {
+  font-size: 12.5px;
+  color: var(--dv-primary);
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--dv-transition);
+}
+
+.dv-forgot-password-link:hover {
+  color: var(--dv-primary-hover);
+  text-decoration: underline;
+}
+
+.dv-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dv-input-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.dv-input-wrapper input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px 0 42px;
+  border: 1px solid var(--dv-border-color);
+  border-radius: var(--dv-radius-sm);
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 14.5px;
+  font-weight: 400;
+  outline: none;
+  transition: var(--dv-transition);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.dv-input-wrapper input:hover {
+  border-color: #cbd5e1;
+}
+
+.dv-input-wrapper input:focus {
+  border-color: var(--dv-border-focus);
+  box-shadow: 0 0 0 3.5px var(--dv-primary-glow), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dv-input-wrapper input:focus + .dv-input-icon,
+.dv-input-wrapper:focus-within .dv-input-icon {
+  color: var(--dv-primary);
+}
+
+.dv-input-wrapper input::placeholder {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.dv-toggle-password-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  transition: var(--dv-transition);
+}
+
+.dv-toggle-password-btn:hover {
+  color: #475569;
+  background-color: #f1f5f9;
+}
+
+/* Opciones de Formulario (Recordar sesión) */
+.dv-form-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dv-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dv-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid #cbd5e1;
+  cursor: pointer;
+  accent-color: var(--dv-primary);
+}
+
+/* Botón Principal */
+.dv-submit-btn {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--dv-radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+  transition: var(--dv-transition);
+}
+
+.dv-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.38);
+  transform: translateY(-1px);
+}
+
+.dv-submit-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+}
+
+.dv-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinner de carga */
+.dv-spinner {
+  animation: dv-spin 0.9s linear infinite;
+}
+
+@keyframes dv-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pie del formulario / Soporte */
+.dv-panel-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.dv-footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.dv-footer-links a,
+.dv-footer-links button {
+  color: #64748b;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.dv-footer-links a:hover,
+.dv-footer-links button:hover {
+  color: var(--dv-primary);
+  text-decoration: underline;
+}
+
+/* Modal o Toast de ayuda de contraseña */
+.dv-info-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  padding: 20px;
+  animation: dv-fade-in 0.2s ease;
+}
+
+.dv-info-modal {
+  background: #ffffff;
+  border-radius: var(--dv-radius-md);
+  padding: 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e2e8f0;
+}
+
+.dv-info-modal h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.dv-info-modal p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 20px 0;
+}
+
+.dv-info-modal-btn {
+  width: 100%;
+  height: 42px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--dv-radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dv-info-modal-btn:hover {
+  background: #1e293b;
+}
+
+@keyframes dv-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ==========================================================================
+   ADAPTATIVIDAD RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .dv-showcase-panel {
+    display: none; /* En tablets y móviles damos prioridad absoluta al acceso clínico directo */
+  }
+
+  .dv-form-panel {
+    padding: 36px 28px;
+    align-items: center;
+  }
+
+  .dv-panel-top-nav {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .dv-panel-footer {
+    width: 100%;
+    max-width: 420px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dv-form-panel {
+    padding: 24px 20px;
+  }
+
+  .dv-form-header h1 {
+    font-size: 26px;
+  }
+
+  .dv-form-header p {
+    font-size: 13.5px;
+  }
+
+  .dv-submit-btn {
+    height: 46px;
+  }
+}
